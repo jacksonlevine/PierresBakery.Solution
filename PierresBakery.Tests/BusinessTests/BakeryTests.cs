@@ -27,5 +27,11 @@ namespace PierresBakery.Tests
       Bread b = new Bread();
       Assert.AreEqual(5.00, b.Price);
     }
+    [TestMethod]
+    public void Pastry_PricePropertyIs2_Double()
+    {
+      Pastry p = new Pastry();
+      Assert.AreEqual(2.00, p.Price);
+    }
   }
 }
