@@ -1,4 +1,3 @@
-using System;
 namespace PierresBakery.Business 
 {
   public interface IBakeryItem
@@ -6,7 +5,6 @@ namespace PierresBakery.Business
     public double Price{ get; set; }
     public void MakeFree();
   }
-
   public class Bread : IBakeryItem
   {
     public double Price{ get; set; }

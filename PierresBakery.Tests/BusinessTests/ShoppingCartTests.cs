@@ -1,7 +1,8 @@
 using PierresBakery.Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace PierresBakery.Tests {
+namespace PierresBakery.Tests
+{
   [TestClass]
   public class ShoppingCartTests
   {
@@ -34,7 +35,6 @@ namespace PierresBakery.Tests {
       s.AddToCart(p3);
       Assert.AreEqual(21.00, s.CalculateTotal());
     }
-
     [TestMethod]
     public void CalculateTotal_ReturnsTotalCostOfContents_Double()
     {
@@ -45,7 +45,6 @@ namespace PierresBakery.Tests {
       s.AddToCart(b2);
       Assert.AreEqual(10.00, s.CalculateTotal());
     }
-
     [TestMethod]
     public void GetNumberOfType_ReturnsNumberOfTypeOfBakeryItem_Int()
     {

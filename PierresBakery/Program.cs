@@ -60,7 +60,9 @@ namespace PierresBakery
 
     static void help() 
     {
+      Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine("Hello! Welcome to Pierre's Bakery. Here's a list of commands:");
+      Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("clearcart - Empty your shopping cart!");
       Console.WriteLine("viewcart - View the contents of your shopping cart!");
       Console.ForegroundColor = ConsoleColor.Red;
@@ -111,7 +113,6 @@ namespace PierresBakery
           }
           catch
           {
-
           }
           for(int i = -leftPadding; i < width; i++)
           {
