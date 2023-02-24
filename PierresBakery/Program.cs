@@ -18,6 +18,7 @@ namespace PierresBakery
           case "clearcart":
             myCart.contents.Clear();
             Console.WriteLine("Successfully cleared your shopping cart.");
+            Console.WriteLine($"Your shopping cart total is now ${myCart.CalculateTotal()}");
             break;
           case "viewcart":
             displayCart(myCart);
@@ -42,6 +43,7 @@ namespace PierresBakery
                   Console.WriteLine($"Bought <{nlSplit[2]}> of Pastry!");
                   break;
               }
+              Console.WriteLine($"Your shopping cart total is now ${myCart.CalculateTotal()}");
             }
             catch(Exception e)
             {
@@ -52,6 +54,7 @@ namespace PierresBakery
             help();
             break;
           case "quit":
+            Console.WriteLine("Have a great day!");
             isEnd = true;
             break;
           default:
@@ -103,11 +106,23 @@ namespace PierresBakery
           {
             displayString += theLine[i];
           }
-          else {
-            displayString += " ";
+          else 
+          {
+            if((i+j)%4 == 0)
+            {
+              displayString += ".";
+            }
+            else
+            {
+              displayString += " ";
+            }
           }
         }
         displayString += "\n";
+      }
+      if(myCart.contents.Count == 0)
+      {
+        displayString += "Your cart is empty! Start buying items with buy <item> <amount>\n";
       }
       displayString += $"Total Cost of Items: ${myCart.CalculateTotal()}";
       Console.WriteLine(displayString);
