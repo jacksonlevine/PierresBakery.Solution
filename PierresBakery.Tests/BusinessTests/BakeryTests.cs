@@ -25,7 +25,7 @@ namespace PierresBakery.Tests
     public void Bread_PricePropertyIs5_Double()
     {
       Bread b = new Bread();
-      Assert.AreEqual(5.00, b._price);
+      Assert.AreEqual(5.00, b.Price);
     }
   }
 }
