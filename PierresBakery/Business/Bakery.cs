@@ -7,6 +7,20 @@ namespace PierresBakery.Business
     public List<IBakeryItem> contents = new List<IBakeryItem>();
     public void AddToCart(IBakeryItem b)
     {
+      if(b.GetType() == typeof(Bread))
+      {
+        int numOfThisType = GetNumberOfType(typeof(Bread));
+        if((numOfThisType + 1) % 3 == 0) {
+          b.MakeFree();
+        }
+      }
+      if(b.GetType() == typeof(Pastry))
+      {
+        int numOfThisType = GetNumberOfType(typeof(Pastry));
+        if((numOfThisType + 1) % 2 == 0) {
+          b.MakeFree();
+        }
+      }
       contents.Add(b);
     }
 
