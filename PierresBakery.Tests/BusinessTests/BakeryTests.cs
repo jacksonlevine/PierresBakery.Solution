@@ -7,7 +7,7 @@ namespace PierresBakery.Tests
   public class BakeryTests
   {
     [TestMethod]
-    public void AddToCart_MakeEveryThirdBreadAndEverySecondPastryFree_Void()
+    public void AddToCart_MakeEveryThirdBreadAndEveryFourthPastryFree_Void()
     {
       ShoppingCart s = new ShoppingCart();
       Bread b1 = new Bread();
@@ -17,6 +17,7 @@ namespace PierresBakery.Tests
       Pastry p = new Pastry();
       Pastry p1 = new Pastry();
       Pastry p2 = new Pastry();
+      Pastry p3 = new Pastry();
       s.AddToCart(b1);
       s.AddToCart(b2);
       s.AddToCart(b3);
@@ -25,7 +26,8 @@ namespace PierresBakery.Tests
       s.AddToCart(p);
       s.AddToCart(p1);
       s.AddToCart(p2);
-      Assert.AreEqual(19.00, s.CalculateTotal());
+      s.AddToCart(p3);
+      Assert.AreEqual(21.00, s.CalculateTotal());
     }
 
     [TestMethod]
