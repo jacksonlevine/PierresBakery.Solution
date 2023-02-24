@@ -7,75 +7,20 @@ namespace PierresBakery.Tests
   public class BakeryTests
   {
     [TestMethod]
-    public void Apple_CreatesInstanceOfApple_Apple()
+    public void MakeFree_SetsPriceToZero_Void()
     {
-      Apple a = new Apple();
-      Assert.AreEqual(typeof(Apple), a.GetType());
+      Pastry p = new Pastry();
+      p.MakeFree();
+      Assert.AreEqual(0.0, p.Price);
+      Bread b = new Bread();
+      b.MakeFree();
+      Assert.AreEqual(0.0, b.Price);
     }
-
-    [TestMethod]
-    public void Banana_CreatesInstanceOfBanana_Banana()
-    {
-      Banana b = new Banana();
-      Assert.AreEqual(typeof(Banana), b.GetType());
-    }
-
     [TestMethod]
     public void Croissant_CreatesInstanceOfCroissant_Croisant()
     {
       Croissant c = new Croissant();
       Assert.AreEqual(typeof(Croissant), c.GetType());
-    }
-
-    [TestMethod]
-    public void AddToCart_MakeEveryThirdBreadAndEveryFourthPastryFree_Void()
-    {
-      ShoppingCart s = new ShoppingCart();
-      Bread b1 = new Bread();
-      Bread b2 = new Bread();
-      Bread b3 = new Bread();
-      Bread b4 = new Bread();
-      Pastry p = new Pastry();
-      Pastry p1 = new Pastry();
-      Pastry p2 = new Pastry();
-      Pastry p3 = new Pastry();
-      s.AddToCart(b1);
-      s.AddToCart(b2);
-      s.AddToCart(b3);
-      s.AddToCart(b4);
-      Assert.AreEqual(15.00, s.CalculateTotal());
-      s.AddToCart(p);
-      s.AddToCart(p1);
-      s.AddToCart(p2);
-      s.AddToCart(p3);
-      Assert.AreEqual(21.00, s.CalculateTotal());
-    }
-
-    [TestMethod]
-    public void CalculateTotal_ReturnsTotalCostOfContents_Double()
-    {
-      ShoppingCart s = new ShoppingCart();
-      Bread b1 = new Bread();
-      Bread b2 = new Bread();
-      s.AddToCart(b1);
-      s.AddToCart(b2);
-      Assert.AreEqual(10.00, s.CalculateTotal());
-    }
-
-    [TestMethod]
-    public void GetNumberOfType_ReturnsNumberOfTypeOfBakeryItem_Int()
-    {
-      ShoppingCart s = new ShoppingCart();
-      Bread b1 = new Bread();
-      Bread b2 = new Bread();
-      Bread b3 = new Bread();
-      Pastry p = new Pastry();
-      s.AddToCart(b1);
-      s.AddToCart(b2);
-      s.AddToCart(b3);
-      s.AddToCart(p);
-      Assert.AreEqual(3, s.GetNumberOfType(typeof(Bread)));
-      Assert.AreEqual(1, s.GetNumberOfType(typeof(Pastry)));
     }
     [TestMethod]
     public void Bread_CreateInstanceOfBread_Bread()
@@ -83,9 +28,7 @@ namespace PierresBakery.Tests
       Bread b = new Bread();
       Assert.AreEqual(typeof(Bread), b.GetType());
     }
-
     [TestMethod]
-
     public void Pastry_CreatesInstanceOfPastry_Pastry()
     {
       Pastry p = new Pastry();
@@ -105,20 +48,10 @@ namespace PierresBakery.Tests
       Assert.AreEqual(2.00, p.Price);
     }
     [TestMethod]
-    public void IBakeryItem_MakeFreeMethodSetsPriceTo0_Void()
+    public void Croissant_PricePropertyIs8_Double()
     {
-      Pastry p = new Pastry();
-      p.MakeFree();
-      Assert.AreEqual(0.0, p.Price);
-      Bread b = new Bread();
-      b.MakeFree();
-      Assert.AreEqual(0.0, b.Price);
-    }
-    [TestMethod]
-    public void ShoppingCart_CreatesInstanceOfShoppingCart_ShoppingCart()
-    {
-      ShoppingCart s = new ShoppingCart();
-      Assert.AreEqual(typeof(ShoppingCart), s.GetType());
+      Croissant c = new Croissant();
+      Assert.AreEqual(8.00, c.Price);
     }
   }
 }
