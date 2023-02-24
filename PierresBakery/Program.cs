@@ -19,7 +19,7 @@ namespace PierresBakery
         switch(nextLine)
         {
           case "viewcart":
-            displayCart();
+            displayCart(myCart);
             break;
           case "buy bread":
             myCart.AddToCart(new Bread());
@@ -34,6 +34,46 @@ namespace PierresBakery
             break;
         }
       }
+    }
+
+    static void displayCart(ShoppingCart myCart)
+    {
+      int width = 40;
+      int topBottomPadding = 5;
+      int leftPadding = 5;
+      string displayString = "";
+      for(int j = -topBottomPadding; j < myCart.contents.Count + topBottomPadding; j++) 
+      {
+        string theLine = "";
+        bool lineEmpty = true;
+        if(j >= 0 && j < myCart.contents.Count)
+        {
+          lineEmpty = false;
+          theLine = $" 1 of {myCart.contents[j].GetType().ToString()} for ${((myCart.contents[j].Price < 1) ? "0" : "")}{myCart.contents[j].Price}";
+        }
+        for(int i = -leftPadding; i < width; i++)
+        {
+          bool onLine = false;
+          if(i >= 0 && i < theLine.Length) {
+            onLine = true;
+          }
+          if(j == -topBottomPadding || j == myCart.contents.Count + topBottomPadding -1 || i == -leftPadding || i == width - 1)
+          {
+            displayString += "*";
+          }
+          else
+          if(lineEmpty == false && onLine == true)
+          {
+            displayString += theLine[i];
+          }
+          else {
+            displayString += " ";
+          }
+        }
+        displayString += "\n";
+      }
+      Console.SetCursorPosition(0,0);
+      Console.WriteLine(displayString);
     }
   }
 }

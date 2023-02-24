@@ -6,7 +6,6 @@ namespace PierresBakery.Tests
   [TestClass]
   public class BakeryTests
   {
-
     [TestMethod]
     public void AddToCart_MakeEveryThirdBreadAndEverySecondPastryFree_Void()
     {
