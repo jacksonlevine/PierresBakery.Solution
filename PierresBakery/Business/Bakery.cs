@@ -56,7 +56,7 @@ namespace PierresBakery.Business
 
   public class Bread : IBakeryItem
   {
-    public double Price{get; set;}
+    public double Price{ get; set; }
     public Bread()
     {
       Price = 5.00;
