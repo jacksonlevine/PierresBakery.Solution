@@ -26,6 +26,21 @@ namespace PierresBakery.Tests
     }
 
     [TestMethod]
+    public void GetNumberOfType_ReturnsNumberOfTypeOfBakeryItem_Int()
+    {
+      ShoppingCart s = new ShoppingCart();
+      Bread b1 = new Bread();
+      Bread b2 = new Bread();
+      Bread b3 = new Bread();
+      Pastry p = new Pastry();
+      s.AddToCart(b1);
+      s.AddToCart(b2);
+      s.AddToCart(b3);
+      s.AddToCart(p);
+      Assert.AreEqual(3, s.GetNumberOfType(typeof(Bread)));
+    }
+
+    [TestMethod]
 
     public void Pastry_CreatesInstanceOfPastry_Pastry()
     {
