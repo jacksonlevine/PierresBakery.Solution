@@ -19,6 +19,19 @@ namespace PierresBakery.Business
       }
       return price;
     }
+
+    public int GetNumberOfType(System.Type type)
+    {
+      int count = 0;
+      foreach(IBakeryItem b in contents) 
+      {
+        if(b.GetType() == type)
+        {
+          count += 1;
+        }
+      }
+      return count;
+    }
   }
 
   public interface IBakeryItem
