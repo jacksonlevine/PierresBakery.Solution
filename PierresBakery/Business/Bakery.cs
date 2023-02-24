@@ -1,6 +1,11 @@
 using System;
 namespace PierresBakery.Business 
 {
+  public class ShoppingCart
+  {
+    
+  }
+
   interface IBakeryItem
   {
     public double Price{ get; set; }
