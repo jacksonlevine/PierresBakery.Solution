@@ -7,7 +7,9 @@ namespace PierresBakery
     static void Main()
     {
       ShoppingCart myCart = new ShoppingCart();
-      Console.WriteLine("Hello! Welcome to Pierre's Bakery. ");
+      Console.WriteLine("Hello! Welcome to Pierre's Bakery. Here's a list of commands:");
+      Console.WriteLine("viewcart - View the contents of your shopping cart!");
+      Console.WriteLine(" - View the contents of your shopping cart!");
     }
   }
 }
