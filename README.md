@@ -1,4 +1,5 @@
 # Pierre's Bakery
+![image](./image.png)
 
 ## An interactive bakery with discounted treats!
 
