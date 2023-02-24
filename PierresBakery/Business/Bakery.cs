@@ -15,8 +15,12 @@ namespace PierresBakery.Business
     }
   }
 
-  public class Pastry
+  public class Pastry : IBakeryItem
   {
-
+    public double Price{ get; set; }
+    public Pastry()
+    {
+      Price = 2.00;
+    }
   }
 }
