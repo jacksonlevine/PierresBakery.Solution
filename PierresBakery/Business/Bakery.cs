@@ -23,7 +23,6 @@ namespace PierresBakery.Business
       }
       contents.Add(b);
     }
-
     public double CalculateTotal()
     {
       double price = 0.0;
@@ -33,7 +32,6 @@ namespace PierresBakery.Business
       }
       return price;
     }
-
     public int GetNumberOfType(System.Type type)
     {
       int count = 0;
@@ -47,13 +45,15 @@ namespace PierresBakery.Business
       return count;
     }
   }
-
   public interface IBakeryItem
   {
     public double Price{ get; set; }
     public void MakeFree();
   }
-
+  public interface IProduceItem : IBakeryItem
+  {
+    public string BestByDate{ get; set; }
+  }
   public class Bread : IBakeryItem
   {
     public double Price{ get; set; }
@@ -66,13 +66,52 @@ namespace PierresBakery.Business
       Price = 0.0;
     }
   }
-
   public class Pastry : IBakeryItem
   {
     public double Price{ get; set; }
     public Pastry()
     {
       Price = 2.00;
+    }
+    public void MakeFree()
+    {
+      Price = 0.0;
+    }
+  }
+  public class Apple : IProduceItem
+  {
+    public double Price{ get; set; }
+    public string BestByDate{ get; set; }
+    public Apple()
+    {
+      Price = 4.00;
+      BestByDate = DateTime.Today.AddDays(20.0).ToShortDateString();
+    }
+    public void MakeFree()
+    {
+      Price = 0.0;
+    }
+  }
+  public class Banana : IProduceItem
+  {
+    public double Price{ get; set; }
+    public string BestByDate{ get; set; }
+    public Banana()
+    {
+      Price = 6.00;
+      BestByDate = DateTime.Today.AddDays(20.0).ToShortDateString();
+    }
+    public void MakeFree()
+    {
+      Price = 0.0;
+    }
+  }
+  public class Croissant : IBakeryItem
+  {
+    public double Price{ get; set; }
+    public Croissant()
+    {
+      Price = 8.00;
     }
     public void MakeFree()
     {
