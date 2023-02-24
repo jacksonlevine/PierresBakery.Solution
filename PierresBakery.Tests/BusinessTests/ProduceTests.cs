@@ -40,5 +40,17 @@ namespace PierresBakery.Tests
       Apple a = new Apple();
       Assert.AreEqual(4.00, a.Price);
     }
+    [TestMethod]
+    public void Apple_HasBestByDate_String()
+    {
+      Apple a = new Apple();
+      Assert.AreNotEqual("", a.BestByDate);
+    }
+    [TestMethod]
+    public void Banana_HasBestByDate_String()
+    {
+      Banana b = new Banana();
+      Assert.AreNotEqual("", b.BestByDate);
+    }
   }
 }
