@@ -26,23 +26,19 @@ namespace PierresBakery
           case "buy":
             try 
             {
-              switch(nlSplit[1]) 
+              string name = nlSplit[1];
+              char[] nameArray = name.ToCharArray();
+              nameArray[0] = char.ToUpper(name[0]);
+              string capitalizedName = String.Join("", nameArray);
+              string fullName = "PierresBakery.Business." + capitalizedName;
+              Type t = Type.GetType(fullName);
+
+              for(int i = 0; i < int.Parse(nlSplit[2]); i++)
               {
-                case "bread":
-                  for(int i = 0; i < int.Parse(nlSplit[2]); i++)
-                  {
-                    myCart.AddToCart(new Bread());
-                  }
-                  Console.WriteLine($"Bought <{nlSplit[2]}> of Bread!");
-                  break;
-                case "pastry":
-                  for(int i = 0; i < int.Parse(nlSplit[2]); i++)
-                  {
-                    myCart.AddToCart(new Pastry());
-                  }
-                  Console.WriteLine($"Bought <{nlSplit[2]}> of Pastry!");
-                  break;
+                myCart.AddToCart((IBakeryItem)Activator.CreateInstance(t));
               }
+              Console.WriteLine($"Bought <{nlSplit[2]}> of {capitalizedName}!");
+
               Console.WriteLine($"Your shopping cart total is now ${myCart.CalculateTotal()}");
             }
             catch(Exception e)
@@ -71,6 +67,9 @@ namespace PierresBakery
       Console.WriteLine("viewcart - View the contents of your shopping cart!");
       Console.WriteLine("buy bread <amount> - Example: buy bread 1 - Add bread to your cart. Every third bread is free!");
       Console.WriteLine("buy pastry <amount> - Example: buy pastry 2 - Add pastries to your cart. Every fourth pastry is free!");
+      Console.WriteLine("buy apple <amount> - Example: buy apple 2 - Add apples to your cart.");
+      Console.WriteLine("buy banana <amount> - Example: buy banana 6 - Add bananas to your cart.");
+      Console.WriteLine("buy croissant <amount> - Example: buy croissant 1 - Add croissant to your cart.");
       Console.WriteLine("help - View this list of commands :)");
       Console.WriteLine("quit - Leave the bakery");
     }
