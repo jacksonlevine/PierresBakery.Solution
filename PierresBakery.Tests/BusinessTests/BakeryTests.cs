@@ -7,6 +7,27 @@ namespace PierresBakery.Tests
   public class BakeryTests
   {
     [TestMethod]
+    public void Apple_CreatesInstanceOfApple_Apple()
+    {
+      Apple a = new Apple();
+      Assert.AreEqual(typeof(Apple), a.GetType());
+    }
+
+    [TestMethod]
+    public void Banana_CreatesInstanceOfBanana_Banana()
+    {
+      Banana b = new Banana();
+      Assert.AreEqual(typeof(Banana), b.GetType());
+    }
+
+    [TestMethod]
+    public void Croissant_CreatesInstanceOfCroissant_Croisant()
+    {
+      Croissant c = new Croissant();
+      Assert.AreEqual(typeof(Croissant), c.GetType());
+    }
+
+    [TestMethod]
     public void AddToCart_MakeEveryThirdBreadAndEveryFourthPastryFree_Void()
     {
       ShoppingCart s = new ShoppingCart();
