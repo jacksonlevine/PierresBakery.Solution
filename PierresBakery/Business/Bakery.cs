@@ -4,6 +4,7 @@ namespace PierresBakery.Business
   interface IBakeryItem
   {
     public double Price{ get; set; }
+    public void MakeFree();
   }
 
   public class Bread : IBakeryItem
@@ -13,6 +14,10 @@ namespace PierresBakery.Business
     {
       Price = 5.00;
     }
+    public void MakeFree()
+    {
+      Price = 0.0;
+    }
   }
 
   public class Pastry : IBakeryItem
@@ -21,6 +26,10 @@ namespace PierresBakery.Business
     public Pastry()
     {
       Price = 2.00;
+    }
+    public void MakeFree()
+    {
+      Price = 0.0;
     }
   }
 }
