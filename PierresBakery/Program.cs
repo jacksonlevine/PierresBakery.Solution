@@ -90,55 +90,71 @@ namespace PierresBakery
 
     static void displayCart(ShoppingCart myCart)
     {
-      int width = 40;
-      int topBottomPadding = 2;
-      int leftPadding = 2;
-      string displayString = "";
-      for(int j = -topBottomPadding; j < myCart.contents.Count + topBottomPadding; j++) 
+      if(myCart.contents.Count < 500) 
       {
-        string theLine = "";
-        bool lineEmpty = true;
-        if(j >= 0 && j < myCart.contents.Count)
+        int width = 50;
+        int topBottomPadding = 2;
+        int leftPadding = 2;
+        string displayString = "";
+        for(int j = -topBottomPadding; j < myCart.contents.Count + topBottomPadding; j++) 
         {
-          lineEmpty = false;
-          theLine = $" 1 of {myCart.contents[j].GetType().Name} for ${myCart.contents[j].Price}";
-        }
-        for(int i = -leftPadding; i < width; i++)
-        {
-          bool onLine = false;
-          if(i >= 0 && i < theLine.Length)
+          string theLine = "";
+          bool lineEmpty = true;
+          if(j >= 0 && j < myCart.contents.Count)
           {
-            onLine = true;
+            lineEmpty = false;
+            theLine = $" 1 of {myCart.contents[j].GetType().Name} for ${myCart.contents[j].Price}";
           }
-          if(j == -topBottomPadding || j == myCart.contents.Count + topBottomPadding -1 || i == -leftPadding || i == width - 1)
+          try
           {
-            displayString += "*";
+            theLine += $" (Best By Date: {((IProduceItem)myCart.contents[j]).BestByDate})";
           }
-          else
-          if(lineEmpty == false && onLine == true)
+          catch
           {
-            displayString += theLine[i];
+
           }
-          else 
+          for(int i = -leftPadding; i < width; i++)
           {
-            if((i+j)%4 == 0)
+            bool onLine = false;
+            if(i >= 0 && i < theLine.Length)
             {
-              displayString += ".";
+              onLine = true;
+            }
+            if(j == -topBottomPadding || j == myCart.contents.Count + topBottomPadding -1 || i == -leftPadding || i == width - 1)
+            {
+              displayString += "*";
             }
             else
+            if(lineEmpty == false && onLine == true)
             {
-              displayString += " ";
+              displayString += theLine[i];
+            }
+            else 
+            {
+              if((i+j)%4 == 0)
+              {
+                displayString += ".";
+              }
+              else
+              {
+                displayString += " ";
+              }
             }
           }
+          displayString += "\n";
         }
-        displayString += "\n";
+        if(myCart.contents.Count == 0)
+        {
+          displayString += "Your cart is empty! Start buying items with buy <item> <amount>\n";
+        }
+        displayString += $"Total Cost of Items: ${myCart.CalculateTotal()}";
+        Console.WriteLine(displayString);
       }
-      if(myCart.contents.Count == 0)
+      else 
       {
-        displayString += "Your cart is empty! Start buying items with buy <item> <amount>\n";
+        Console.WriteLine($"Your cart is too big too view! It has {myCart.contents.Count} items.");
+        Console.WriteLine($"Total Cost of Items: ${myCart.CalculateTotal()}");
       }
-      displayString += $"Total Cost of Items: ${myCart.CalculateTotal()}";
-      Console.WriteLine(displayString);
     }
   }
 }
