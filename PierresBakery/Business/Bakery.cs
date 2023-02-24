@@ -5,4 +5,9 @@ namespace PierresBakery.Business
   {
 
   }
+
+  public class Pastry
+  {
+    
+  }
 }
