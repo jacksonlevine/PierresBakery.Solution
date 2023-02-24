@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System;
 namespace PierresBakery.Business 
 {
   public class ShoppingCart
   {
     public List<IBakeryItem> contents = new List<IBakeryItem>();
+    public double StoreCredit{ get; set; }
     public void AddToCart(IBakeryItem b)
     {
       if(b.GetType() == typeof(Bread))
@@ -21,6 +23,13 @@ namespace PierresBakery.Business
         {
           b.MakeFree();
         }
+      }
+      if(StoreCredit > 0)
+      {
+        double beforePrice = b.Price;
+        b.Price = Math.Max(b.Price-StoreCredit,0);
+        double difference = beforePrice - b.Price;
+        StoreCredit -= difference;
       }
       contents.Add(b);
     }
@@ -44,6 +53,10 @@ namespace PierresBakery.Business
         }
       }
       return count;
+    }
+    public void GiveStoreCredit(double amount)
+    {
+      StoreCredit += amount;
     }
   }
 }
