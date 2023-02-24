@@ -38,6 +38,7 @@ namespace PierresBakery.Tests
       s.AddToCart(b3);
       s.AddToCart(p);
       Assert.AreEqual(3, s.GetNumberOfType(typeof(Bread)));
+      Assert.AreEqual(1, s.GetNumberOfType(typeof(Pastry)));
     }
 
     [TestMethod]
