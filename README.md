@@ -1,5 +1,7 @@
 # Pierre's Bakery
+
 ## An interactive bakery with discounted treats!
+
 Console app in C# that uses a command system to inform the user of available goods and prices, as well as allow the user to add goods to their cart.
 
 # Technologies Used:
@@ -20,6 +22,10 @@ Console app in C# that uses a command system to inform the user of available goo
 2. `cd` into /PierresBakery.Tests folder.
 3. Type `dotnet restore` to install all dependencies.
 4. Once dependencies are installed, type `dotnet test` and press enter.
+
+# Contact Information
+
+Please contact me at jack@netbug.us to report bugs or ask questions!
 
 # License:
 
