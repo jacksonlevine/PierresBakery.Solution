@@ -18,10 +18,8 @@ namespace PierresBakery.Tests
       ShoppingCart s = new ShoppingCart();
       Bread b1 = new Bread();
       Bread b2 = new Bread();
-      Bread b3 = new Bread();
       s.AddToCart(b1);
       s.AddToCart(b2);
-      s.AddToCart(b3);
       Assert.AreEqual(15.00, s.CalculateTotal());
     }
 
