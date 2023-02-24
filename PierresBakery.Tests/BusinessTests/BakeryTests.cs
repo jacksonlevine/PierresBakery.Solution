@@ -43,5 +43,11 @@ namespace PierresBakery.Tests
       b.MakeFree();
       Assert.AreEqual(0.0, b.Price);
     }
+    [TestMethod]
+    public void ShoppingCart_CreatesInstanceOfShoppingCart_ShoppingCart()
+    {
+      ShoppingCart s = new ShoppingCart();
+      Assert.AreEqual(typeof(ShoppingCart), s.GetType());
+    }
   }
 }
