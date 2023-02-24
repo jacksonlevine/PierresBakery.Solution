@@ -32,18 +32,16 @@ namespace PierresBakery
               string capitalizedName = String.Join("", nameArray);
               string fullName = "PierresBakery.Business." + capitalizedName;
               Type t = Type.GetType(fullName);
-
               for(int i = 0; i < int.Parse(nlSplit[2]); i++)
               {
                 myCart.AddToCart((IBakeryItem)Activator.CreateInstance(t));
               }
               Console.WriteLine($"Bought <{nlSplit[2]}> of {capitalizedName}!");
-
               Console.WriteLine($"Your shopping cart total is now ${myCart.CalculateTotal()}");
             }
             catch(Exception e)
             {
-              Console.WriteLine("Too few arguments! Please type help for command formats. " + e.Message);
+              Console.WriteLine("Too few arguments or invalid item! Please type help for command formats. " + e.Message);
             }
             break;
           case "help":
@@ -65,10 +63,26 @@ namespace PierresBakery
       Console.WriteLine("Hello! Welcome to Pierre's Bakery. Here's a list of commands:");
       Console.WriteLine("clearcart - Empty your shopping cart!");
       Console.WriteLine("viewcart - View the contents of your shopping cart!");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("******Available Items:******");
+      Console.WriteLine("***Bread $5***");
+      Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("buy bread <amount> - Example: buy bread 1 - Add bread to your cart. Every third bread is free!");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("***Pastry $2***");
+      Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("buy pastry <amount> - Example: buy pastry 2 - Add pastries to your cart. Every fourth pastry is free!");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("***Apple $4***");
+      Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("buy apple <amount> - Example: buy apple 2 - Add apples to your cart.");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("***Banana $6***");
+      Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("buy banana <amount> - Example: buy banana 6 - Add bananas to your cart.");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("***Croissant $8***");
+      Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("buy croissant <amount> - Example: buy croissant 1 - Add croissant to your cart.");
       Console.WriteLine("help - View this list of commands :)");
       Console.WriteLine("quit - Leave the bakery");
