@@ -28,12 +28,14 @@ namespace PierresBakery
                   {
                     myCart.AddToCart(new Bread());
                   }
+                  Console.WriteLine($"Bought <{nlSplit[2]}> of Bread!");
                   break;
                 case "pastry":
                   for(int i = 0; i < int.Parse(nlSplit[2]); i++)
                   {
                     myCart.AddToCart(new Pastry());
                   }
+                  Console.WriteLine($"Bought <{nlSplit[2]}> of Pastry!");
                   break;
               }
             }
