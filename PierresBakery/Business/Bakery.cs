@@ -17,7 +17,7 @@ namespace PierresBakery.Business
       if(b.GetType() == typeof(Pastry))
       {
         int numOfThisType = GetNumberOfType(typeof(Pastry));
-        if((numOfThisType + 1) % 2 == 0) {
+        if((numOfThisType + 1) % 4 == 0) {
           b.MakeFree();
         }
       }
