@@ -54,7 +54,7 @@ namespace PierresBakery
             help();
             break;
           case "quit":
-            Console.WriteLine("Have a great day!");
+            Console.WriteLine("Goodbye! Have a great day!");
             isEnd = true;
             break;
           default:
