@@ -33,5 +33,15 @@ namespace PierresBakery.Tests
       Pastry p = new Pastry();
       Assert.AreEqual(2.00, p.Price);
     }
+    [TestMethod]
+    public void IBakeryItem_MakeFreeMethodSetsPriceTo0_Void()
+    {
+      Pastry p = new Pastry();
+      p.MakeFree();
+      Assert.AreEqual(0.0, p.Price);
+      Bread b = new Bread();
+      b.MakeFree();
+      Assert.AreEqual(0.0, b.Price);
+    }
   }
 }
