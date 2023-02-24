@@ -60,5 +60,15 @@ namespace PierresBakery.Tests
       Assert.AreEqual(3, s.GetNumberOfType(typeof(Bread)));
       Assert.AreEqual(1, s.GetNumberOfType(typeof(Pastry)));
     }
+    [TestMethod]
+    public void GiveStoreCredit_ItemsBoughtAfterArePaidForByStoreCredit_Void()
+    {
+      ShoppingCart s = new ShoppingCart();
+      s.GiveStoreCredit(10);
+      s.AddToCart(new Apple());
+      s.AddToCart(new Apple());
+      s.AddToCart(new Apple());
+      Assert.AreEqual(2.00, s.CalculateTotal());
+    }
   }
 }
