@@ -24,7 +24,14 @@ namespace PierresBakery.Business
           b.MakeFree();
         }
       }
-      
+      if(b.GetType() == typeof(Banana))
+      {
+        int numOfThisType = GetNumberOfType(typeof(Banana));
+        if((numOfThisType + 1) % 3 == 0 || (numOfThisType + 1) % 2 == 0)
+        {
+          b.MakeFree();
+        }
+      }
       if(StoreCredit > 0)
       {
         double beforePrice = b.Price;
