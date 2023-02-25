@@ -3,7 +3,9 @@
 
 ## An interactive bakery with discounted treats!
 
-Console app in C# that uses a command system to inform the user of available goods and prices, as well as allow the user to add goods to their cart.
+Console app in C# that uses a command system to inform the user of available goods and prices, as well as allow the user to add goods to their cart. Customer may also file a complaint and receive store credit in return.
+
+Uses a command system based on a central `while` loop and `switch` statement.
 
 # Technologies Used:
 * C#
@@ -26,7 +28,7 @@ Console app in C# that uses a command system to inform the user of available goo
 
 # Contact Information
 
-Please contact me at jack@netbug.us to report bugs or ask questions!
+Contact jack@netbug.us to report bugs.
 
 # License:
 
