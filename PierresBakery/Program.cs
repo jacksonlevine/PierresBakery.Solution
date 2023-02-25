@@ -15,6 +15,13 @@ namespace PierresBakery
         string[] nlSplit = nextLine.Split(' ');
         switch(nlSplit[0])
         {
+          case "complaint":
+            Console.WriteLine("We're sorry to hear if you had any trouble with our goods or services, please explain your complaint:");
+            string comp = Console.ReadLine();
+            int creditToGive = comp.Length/2;
+            myCart.GiveStoreCredit((double)creditToGive);
+            Console.WriteLine($"Thank you for reporting. We apologize for the inconvenience. You have been given {creditToGive} store credits, usable on any future purchase.");
+            break;
           case "clearcart":
             myCart.contents.Clear();
             Console.WriteLine("Successfully cleared your shopping cart.");
@@ -87,6 +94,7 @@ namespace PierresBakery
       Console.ForegroundColor = ConsoleColor.White;
       Console.WriteLine("buy croissant <amount> - Example: buy croissant 1 - Add croissant to your cart.");
       Console.WriteLine("help - View this list of commands :)");
+      Console.WriteLine("complaint - Report an issue with a recent purchase.");
       Console.WriteLine("quit - Leave the bakery");
     }
 
