@@ -64,7 +64,6 @@ namespace PierresBakery
         }
       }
     }
-
     static void help() 
     {
       Console.ForegroundColor = ConsoleColor.Green;
@@ -97,7 +96,6 @@ namespace PierresBakery
       Console.WriteLine("complaint - Report an issue with a recent purchase.");
       Console.WriteLine("quit - Leave the bakery");
     }
-
     static void displayCart(ShoppingCart myCart)
     {
       if(myCart.contents.Count < 500) 
@@ -159,7 +157,7 @@ namespace PierresBakery
         displayString += $"Total Cost of Items: ${myCart.CalculateTotal()}";
         Console.WriteLine(displayString);
       }
-      else 
+      else
       {
         Console.WriteLine($"Your cart is too big too view! It has {myCart.contents.Count} items.");
         Console.WriteLine($"Total Cost of Items: ${myCart.CalculateTotal()}");
@@ -167,5 +165,3 @@ namespace PierresBakery
     }
   }
 }
-
-  

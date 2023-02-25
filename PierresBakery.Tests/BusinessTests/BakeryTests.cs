@@ -1,6 +1,5 @@
 using PierresBakery.Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace PierresBakery.Tests 
 {
   [TestClass]
@@ -34,7 +33,6 @@ namespace PierresBakery.Tests
       Pastry p = new Pastry();
       Assert.AreEqual(typeof(Pastry), p.GetType());
     }
-
     [TestMethod]
     public void Bread_PricePropertyIs5_Double()
     {
