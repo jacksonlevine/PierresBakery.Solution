@@ -35,6 +35,15 @@ namespace PierresBakery.Tests
       Assert.AreEqual(21.00, s.CalculateTotal());
     }
     [TestMethod]
+    public void AddToCart_ThreeBananasForPriceOfOne_Void()
+    {
+      ShoppingCart s = new ShoppingCart();
+      s.AddToCart(new Banana());
+      s.AddToCart(new Banana());
+      s.AddToCart(new Banana());
+      Assert.AreEqual(6.00, s.CalculateTotal());
+    }
+    [TestMethod]
     public void CalculateTotal_ReturnsTotalCostOfContents_Double()
     {
       ShoppingCart s = new ShoppingCart();

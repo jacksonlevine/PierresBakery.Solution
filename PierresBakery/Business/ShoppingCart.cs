@@ -24,6 +24,7 @@ namespace PierresBakery.Business
           b.MakeFree();
         }
       }
+      
       if(StoreCredit > 0)
       {
         double beforePrice = b.Price;
